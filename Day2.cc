@@ -23,13 +23,13 @@ bool IsSafe(const std::vector<int>& array) {
     return increasing || decreasing;
 }
 
-bool IsSafePart2(const std::vector<int>& levels) {
-    if (IsSafe(levels)) return true;
+bool IsSafePart2(const std::vector<int>& array) {
+    if (IsSafe(array)) return true;
 
-    for (int i = 0; i < levels.size(); ++i) {
+    for (int i = 0; i < array.size(); ++i) {
         std::vector<int> modified;
-        for (int j = 0; j < levels.size(); ++j) { // cheeky skipper
-            if (j != i) modified.push_back(levels[j]);
+        for (int j = 0; j < array.size(); ++j) { // cheeky skipper
+            if (j != i) modified.push_back(array[j]);
         }
         if (IsSafe(modified)) return true;
     }
